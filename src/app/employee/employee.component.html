@@ -1,0 +1,101 @@
+<div class="container d-flex flex-column  px-4 py-2" style="height: 100%;">
+    <div class="d-flex justify-content-between">
+
+        <h4>Employees management</h4>
+        <button class="btn btn-sm btn-outline-primary" (click)="open(content)">Add Employee</button>
+
+    </div>
+    <div class="main-box p-1" style="width: 100%;">
+
+
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th class="badge-grey">#</th>
+                    <th class="badge-grey">Name</th>
+                    <th class="badge-grey">Mobile</th>
+                    <th class="badge-grey">Action</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Amrit</td>
+                    <td>9876543210</td>
+                    <td>
+                        <button class="btn btn-sm btn-primary" style="margin-right: 10px;">
+                            <i class="fa fa-edit"></i>
+                        </button>
+                        <button class="btn btn-sm btn-primary">
+                            <i class="fa fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Amrit</td>
+                    <td>9876543210</td>
+
+                    <td>
+                        <button class="btn btn-sm btn-primary mr-4" style="margin-right: 10px;">
+                            <i class="fa fa-edit"></i>
+                        </button>
+                        <button class="btn btn-sm btn-primary">
+                            <i class="fa fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
+
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        
+        <form (ngSubmit)="addEmployeeSubmit()">
+        
+            <div class=" mb-4">
+                <div class="form-group auth-form-group-custom mb-0">
+                    <label for="name">Employee name</label>
+                    <input required="true" type="text" class="form-control" id="name" formControlName="name">
+                </div>
+            </div>
+
+            <div class=" mb-4">
+                <div class="form-group auth-form-group-custom mb-0">
+                    <label for="mobile">Employee Mobile</label>
+                    <input required type="text" class="form-control" id="mobile" formControlName="mobile">
+                </div>
+            </div>
+
+
+            <div class=" mb-4">
+                <div class="form-group auth-form-group-custom mb-0">
+                    <label for="city">City</label>
+                    <input required type="text" class="form-control" id="city" formControlName="city">
+                </div>
+            </div>
+
+
+            <div class="mt-4 text-center">
+                <button class="btn btn-primary w-md waves-effect waves-light" 
+                    type="submit">Submit</button>
+            </div>
+
+
+        </form>
+    </div>
+    <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    </div> -->
+</ng-template>

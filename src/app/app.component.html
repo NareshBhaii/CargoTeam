@@ -1,0 +1,88 @@
+<div class="toolbar " role="banner">
+  <link rel="stylesheet" href="./app.component.css">
+  <span class="fs-4 px-3">Cargo Team</span>
+  <div class="spacer"></div>
+  <p *ngIf="islogin"><i class="fa fa-user"></i> {{menuType}}</p>
+  <a routerLink="#" *ngIf="islogin" (click)="handleLogout()" class="text-light hovering px-4 "> <i class="fa fa-sign-out"></i>
+    Logout</a>
+</div>
+
+<div class="d-flex" role="main">
+
+
+  <div class="sidebar">
+    <ul className="navbar-nav pt-4">
+
+      <li className="nav-item main-logo-wrapper " *ngIf="menuType=='customer'">
+        <a routerLink="/my-profile"> <span>Profile</span></a>
+      </li>
+
+      <li className="nav-item main-logo-wrapper " *ngIf="menuType!='customer'">
+        <a routerLink="/city"> <span>Search City</span></a>
+      </li>
+
+      <li className="nav-item main-logo-wrapper " *ngIf="menuType=='' || menuType=='customer'">
+        <a routerLink="/cargoPrice"> <span>Calculate Cargo Price</span></a>
+      </li>
+
+      <li className="nav-item main-logo-wrapper " *ngIf="menuType=='customer'">
+        <a routerLink="/my-orders"> <span>My orders</span></a>
+      </li>
+
+
+      <li className="nav-item main-logo-wrapper">
+        <a routerLink="/cargo-booking"> <span>Book a Cargo</span></a>
+      </li>
+
+
+      <li className="nav-item main-logo-wrapper " *ngIf="menuType==''|| menuType=='customer'">
+        <a routerLink="/my-orders" [queryParams]="{c: 'true'}"> <span>Cancel the Cargo</span></a>
+      </li>
+
+
+
+
+
+
+
+      <li className="nav-item main-logo-wrapper " *ngIf="menuType=='admin'">
+        <a routerLink="/employee"> <span>Employee</span></a>
+      </li>
+
+      <li className="nav-item main-logo-wrapper d-none" *ngIf="menuType=='admin'">
+        <a routerLink="/cargo"> <span>Cargo</span></a>
+      </li>
+
+      <li className="nav-item main-logo-wrapper d-none" *ngIf="menuType=='admin'">
+        <a routerLink="/register-request"> <span>Register Requests</span></a>
+      </li>
+
+
+      <li className="nav-item main-logo-wrapper " *ngIf="menuType=='admin' || menuType=='employee'">
+        <a routerLink="/customers"> <span>Customers</span></a>
+      </li>
+
+    </ul>
+
+
+  </div>
+
+  <div class="main-section">
+    <router-outlet></router-outlet>
+
+  </div>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+<footer>
+  <p>@copyright Capgemini Indian pvt ltd {{year}}<p>
+</footer>
